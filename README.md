@@ -1,4 +1,4 @@
-# <center>Artistic Image Generation</center>
+# Artistic Image Generation
 
 ![Banner](/banner.png)
 
@@ -21,7 +21,9 @@ The folders should be arranged as follows:
 11. shoe/
 12. jacket/
 
-Each folder should contain PNG files representing the respective body part. Make sure the PNG files have `transparent` backgrounds.
+Each folder should contain PNG files representing the respective body part. Make sure the PNG files have `transparent` backgrounds and make sure the files are 1080x1080 px of size, If different size is given then change the code of `generate_artwork.py` at `line 56`:
+   
+    canvas = Image.new('RGBA', (1080, 1080), (0, 0, 0, 0))#1080,1080 is the width and height of the image
 
 ## Prerequisites
 
