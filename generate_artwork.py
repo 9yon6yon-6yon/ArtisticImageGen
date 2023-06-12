@@ -52,7 +52,7 @@ for _ in range(num_artworks):
     if artwork_id not in generated_artworks:
         generated_artworks.add(artwork_id)
 
-        # Create a new image with a transparent background
+        # Create a new image with a transparent background with specific size of 1080x1080
         canvas = Image.new('RGBA', (1080, 1080), (0, 0, 0, 0))
 
         # Paste each body part onto the canvas
