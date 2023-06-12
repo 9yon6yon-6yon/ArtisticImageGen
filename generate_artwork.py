@@ -53,13 +53,15 @@ for _ in range(num_artworks):
         generated_artworks.add(artwork_id)
 
         # Create a new image with a transparent background with specific size of 1080x1080
-        canvas = Image.new('RGBA', (1080, 1080), (0, 0, 0, 0))
+        canvas = Image.new('RGBA', (1080, 1080), (255, 255, 255))
 
         # Paste each body part onto the canvas
         for file_path in artwork.values():
             part_image = Image.open(file_path).convert('RGBA')
             canvas.paste(part_image, (0, 0), mask=part_image)
 
+        # Remove the alpha channel to make the background fully opaque
+        canvas = canvas.convert('RGB')
         # Save the merged image
         image_path = os.path.join(output_folder, f"{artwork_id}.png")
         canvas.save(image_path)
